@@ -3,6 +3,10 @@ const HTMLWebpackPlugin = require('')
 const {CleanWebpackPlugin} = require('')
 
 module.exports = {
+  devServer: {
+    port: 3005,
+    start: true
+  },
   context: path.resolve(__dirname, 'src'),
   entry: {
     main: './index.js'
