@@ -1,36 +1,38 @@
-.sidebar {
+.main {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+#sidebar {
     margin: 0;
     padding: 0;
     width: 200px;
     background-color: #f1f1f1;
-    position: fixed;
-    height: 100%;
-    overflow: auto;
+    position: inherit;
+    height: 600px;
 }
-.sidebar button {
+#sidebar button {
     width: 200px;
     border: 0;
     padding: 0;
     text-align: left;
 }
 
-/* Сайдбар ссылки */
-.sidebar a {
+#sidebar a {
     display: block;
     color: black;
     padding: 16px;
     text-decoration: none;
 }
-.sidebar a.active {
+#sidebar a.active {
     background-color: #4CAF50;
     color: white;
 }
-.sidebar a:hover:not(.active) {
+#sidebar a:hover:not(.active) {
     background-color: #555;
     color: white;
 }
-.container {
+#container {
     width: 1100px;
-    display: flex;
-    justify-content: space-between;
+    height: 600px;
 }
