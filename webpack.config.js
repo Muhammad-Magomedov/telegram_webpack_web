@@ -1,11 +1,10 @@
 const path = require('path');
-const HTMLWebpackPlugin = require('')
-const {CleanWebpackPlugin} = require('')
+const HTMLWebpackPlugin = require('html-webpack-plugin')
+const {CleanWebpackPlugin} = require('clean-webpack-plugin')
 
 module.exports = {
   devServer: {
-    port: 3005,
-    start: true
+    port: 3005
   },
   context: path.resolve(__dirname, 'src'),
   entry: {
