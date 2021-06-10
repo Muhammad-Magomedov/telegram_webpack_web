@@ -1,30 +1,23 @@
-// import './styles.css'
+const getChannelByCategory = require("./function")
+const getCategories = () => {
+  const sidebar = document.getElementById('sidebar');
+  fetch("http://localhost:3004/categories", { method: "GET"})
+  .then(res => res.json())
+  .then(data => {
+    for (let i=0; i < data.length; i++) {
+      const button = document.createElement('button');
+      const a = document.createElement('a');
+      a.href = `http://localhost:3004/category/${data[i]._id}/channels`;
+      a.append(data[i].name);
+      a.classList.add('active')
+      button.append(a)
+      sidebar.append(button)
+      console.log(data[i])
+      a.addEventListener('click', () => {
+        getChannelByCategory(data[i].category)
+      })
+    }
+  })
+}
 
-document.addEventListener('DOMContentLoaded', () => {
-  fetch('http://localhost:3004/', { method: "GET" })
-    .then(res => res.json())
-    .then(data => {
-      const container = document.querySelector('.container')
-      for (let i = 0; i < data.length; i++) {
-        const zagolovok = document.createElement('div');
-        const name = document.createElement('div');
-        const text = document.createElement('div');
-        const button = document.createElement('button');
-        const a = document.createElement('a');
-        // zagolovok.classList.add('block');
-        // // name.classList.add('block');
-        // // text.classList.add('block');
-        zagolovok.append(data[i].title);
-        name.append(data[i].name);
-        text.append(data[i].text);
-        a.textContent = 'Подписаться';
-        a.href = '/channels/:id';
-        button.prepend(a);
-        container.append(zagolovok);
-        container.append(name);
-        container.append(text);
-        container.append(button);
-        console.log(data)
-      }
-    })
-})
+module.exports = getCategories
